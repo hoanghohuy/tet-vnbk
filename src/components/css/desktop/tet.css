@@ -268,6 +268,8 @@
 }
 
 .tet-container .tet-contact .tet-contact-form {
+    position: absolute; 
+    right: 20%;
     max-width: 617px;
     width: 52%;
 }
@@ -597,6 +599,13 @@ div:where(.swal2-container).swal2-backdrop-show {
 
 @media only screen and (max-width: 1400px) {
 
+    .tet-container .tet-contact .tet-contact-form {
+        position: relative;
+        max-width: 617px;
+        width: 52%;
+        right: unset;
+    }
+
     .tet-container .tet-header {
         gap: 32px;
     }
@@ -744,7 +753,7 @@ div:where(.swal2-container).swal2-backdrop-show {
     }
 
     .tet-container .tet-contact .tet-contact-form {
-        width: 440px;
+        /* width: 440px; */
     }
 
     .tet-container .tet-contact {
