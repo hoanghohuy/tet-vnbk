@@ -1,0 +1,22 @@
+{
+  "name": "tet-vnbk",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.7",
+    "bootstrap3": "^3.3.5",
+    "jquery": "^3.7.1",
+    "next": "14.0.4",
+    "owl.carousel": "^2.3.4",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
+  }
+}
