@@ -12,9 +12,33 @@ export default function Home() {
     dots: false,
     infinite: true,
     autoplay: true,
+    arrows: false,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1
+    slidesToScroll: 1,
+    responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 3,
+        slidesToScroll: 3,
+      }
+    },
+    {
+      breakpoint: 992,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2
+      }
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1
+      }
+    }
+  ]
   };
     
   return (
@@ -246,7 +270,7 @@ export default function Home() {
                 </div>
             </div>
             <Slider {...settings} className="tet-thanks-slider">
-                    <div class="slider-image-item">
+                    {/* <div class="slider-image-item">
                         <img src="/images/thanks.png" />
                     </div>
                     <div class="slider-image-item">
@@ -260,7 +284,13 @@ export default function Home() {
                     </div>
                     <div class="slider-image-item">
                         <img src="/images/thanks.png" />
-                    </div>
+                    </div> */}
+                    {
+                    [1,2,3,4,5].map(item => (
+                        <div class="slider-image-item">
+                            <img src={`/images/slider/${item}.png`} />
+                        </div>
+                    ))}
             </Slider>
              
             {/* <div class="tet-thanks-slider">
