@@ -286,7 +286,7 @@ export default function Home() {
                         <img src="/images/thanks.png" />
                     </div> */}
                     {
-                    [1,2,3,4,5].map(item => (
+                    [1,2,3,4,5,6,7,8,9,10,11,12,13,14].map(item => (
                         <div class="slider-image-item">
                             <img src={`/images/slider/${item}.png`} />
                         </div>
