@@ -1,14 +1,14 @@
 'use client';
-import React from "react";
+import React, { useState } from "react";
 import Slider from 'react-slick';
 import { tourMienBac, tourMienNam, tourMienTrung, tourTuDN, tourTuHCM, tourTuHN } from "@/components/js/dataTour";
 import '@/components/css/desktop/tet.css'
 import "@/components/css/animate.min.css" 
 import "@/components/css/custom/common/fonts-custom.css"
 import "@/components/css/desktop/tet.css"
-    
-export default function Home() {
-    const settings = {
+import Swal from "sweetalert2";
+
+const settings = {
     dots: false,
     infinite: true,
     autoplay: true,
@@ -18,7 +18,7 @@ export default function Home() {
     slidesToScroll: 1,
     responsive: [
     {
-      breakpoint: 1200,
+      breakpoint: 1400,
       settings: {
         slidesToShow: 3,
         slidesToScroll: 3,
@@ -39,7 +39,28 @@ export default function Home() {
       }
     }
   ]
-  };
+};
+    
+export default function Home() {
+  const [name, setName] = useState('');
+  const [phone, setPhone] = useState('');
+  const [city, setCity] = useState('');
+
+  const handleSubmit = () => {
+    console.log({name, phone, city});
+    Swal.fire({
+    title: 'Cám ơn quý khách đã quan tâm tới dịch vụ của vietnam booking',
+    text: 'Thông tin đã được ghi nhận. Chúng tôi sẽ liên hệ lại Quý khách trong thời gian sớm nhất.',
+    confirmButtonText: '<img class="tet-popup-xacnhan-btn" src="/images/popup_xacnhan.png" />',
+    customClass: {
+        confirmButton: "tet-custom-confirm",
+        title: 'tet-custom-popup-title',
+        htmlContainer: 'tet-custom-popup-text',
+        popup: 'tet-custom-popup-container',
+    }
+    })
+
+  }
     
   return (
     <div class="tet-container">
@@ -300,7 +321,7 @@ export default function Home() {
             </div> */}
         </div>
         {/* <!-- TET LIEN HE DAT TOUR --> */}
-        <div class="tet-contact">
+        {/* <div class="tet-contact">
             <img class="tet-contact-banner" src="/images/contact_banner.png" />
             <div class="tet-contact-form">
                 <div class="tet-contact-header">
@@ -320,6 +341,30 @@ export default function Home() {
                             <img class="tet-form-submit-img" src="/images/dang-ky.png" />
                         </button>
                     </form>
+                </div>
+            </div>
+        </div> */}
+
+        <div class="tet-contact">
+            <img class="tet-contact-banner" src="/images/contact_banner.png" />
+            <div class="tet-contact-form">
+                <div class="tet-contact-header">
+                    <img class="tet-contact-img" src="/images/tet-dong-day.png" />
+                    <div class="tet-form-container">
+                        <div class="tet-form-title">Đặt tour ngay hôm nay</div>
+                        <div class="tet-form-list">
+                            <input onChange={(e) => setName(e.target.value)} placeholder="Họ tên của bạn" id="full_name" class="tet-form-input" />
+                            <input onChange={(e) => setPhone(e.target.value)} type="number" placeholder="Số điện thoại" id="full_name" class="tet-form-input" />
+                            <select onChange={(e) => setCity(e.target.value)} name="destination" id="destination" class="tet-form-destination">
+                                <option value="Hà Nội">Hà Nội</option>
+                                <option value="Đà Nẵng">Đà Nẵng</option>
+                                <option value="Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                            </select>
+                        </div>
+                        <button class="tet-form-submit" type="submit" >
+                            <img onClick={handleSubmit} class="tet-form-submit-img" src="/images/dang-ky.png" />
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
