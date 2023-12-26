@@ -322,6 +322,7 @@
     border-radius: 500px;
     outline: none;
     border: 2px solid #DF8D57;
+    color: #DF8D57;
     padding: 0 28px;
     background: linear-gradient(180deg, #FFF 0%, #FEE5D0 100%);
     font-family: Mulish;

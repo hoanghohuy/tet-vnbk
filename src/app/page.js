@@ -44,9 +44,10 @@ const settings = {
 export default function Home() {
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState('Hà Nội');
+  const [disabled, setDisabled] = useState(false);
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if(name.length < 3) {
         Swal.fire({
         title: 'Họ và tên của bạn không hợp lệ! Vui lòng kiểm tra lại.',
@@ -74,18 +75,42 @@ export default function Home() {
         })
     return;
     }
-    console.log({name, phone, city});
-    Swal.fire({
-    title: 'Cám ơn quý khách đã quan tâm tới dịch vụ của vietnam booking',
-    text: 'Thông tin đã được ghi nhận. Chúng tôi sẽ liên hệ lại Quý khách trong thời gian sớm nhất.',
-    confirmButtonText: '<img class="tet-popup-xacnhan-btn" src="/images/popup_xacnhan.png" />',
-    customClass: {
-        confirmButton: "tet-custom-confirm",
-        title: 'tet-custom-popup-title',
-        htmlContainer: 'tet-custom-popup-text',
-        popup: 'tet-custom-popup-container',
-    }
-    })
+    setDisabled(true);
+    try {
+        const sendMail = await fetch('/api/contacts', {
+            method: 'POST',
+            body: JSON.stringify({name, phone, city})
+        })
+        if(sendMail.status == 200) {
+            Swal.fire({
+                title: 'Cám ơn quý khách đã quan tâm tới dịch vụ của vietnam booking',
+                text: 'Thông tin đã được ghi nhận. Chúng tôi sẽ liên hệ lại Quý khách trong thời gian sớm nhất.',
+                confirmButtonText: '<img class="tet-popup-xacnhan-btn" src="/images/popup_xacnhan.png" />',
+                customClass: {
+                    confirmButton: "tet-custom-confirm",
+                    title: 'tet-custom-popup-title',
+                    htmlContainer: 'tet-custom-popup-text',
+                    popup: 'tet-custom-popup-container',
+                }
+            })
+        } else {
+            Swal.fire({
+                title: 'Đã có lỗi xảy ra! Vui lòng thử lại sau ít phút.',
+                confirmButtonText: '<img class="tet-popup-xacnhan-btn" src="/images/popup_xacnhan.png" />',
+                customClass: {
+                    confirmButton: "tet-custom-confirm",
+                    title: 'tet-custom-popup-title',
+                    htmlContainer: 'tet-custom-popup-text',
+                    popup: 'tet-custom-notify-container',
+                }
+            })
+        }
+    } catch (error) {
+        setDisabled(false);
+        throw error;
+    } 
+
+    
 
   }
     
@@ -388,7 +413,7 @@ export default function Home() {
                                 <option value="Hồ Chí Minh">TP. Hồ Chí Minh</option>
                             </select>
                         </div>
-                        <button class="tet-form-submit" type="submit" >
+                        <button disabled={disabled} class="tet-form-submit" type="submit" >
                             <img onClick={handleSubmit} class="tet-form-submit-img" src="/images/dang-ky.png" />
                         </button>
                     </div>
