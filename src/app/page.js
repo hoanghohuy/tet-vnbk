@@ -47,6 +47,33 @@ export default function Home() {
   const [city, setCity] = useState('');
 
   const handleSubmit = () => {
+    if(name.length < 3) {
+        Swal.fire({
+        title: 'Họ và tên của bạn không hợp lệ! Vui lòng kiểm tra lại.',
+        confirmButtonText: '<img class="tet-popup-xacnhan-btn" src="/images/popup_xacnhan.png" />',
+        customClass: {
+            confirmButton: "tet-custom-confirm",
+            title: 'tet-custom-popup-title',
+            htmlContainer: 'tet-custom-popup-text',
+            popup: 'tet-custom-notify-container',
+        }
+        })
+    return;
+    }
+
+    if(phone.length < 6 || phone.length > 12) {
+        Swal.fire({
+        title: 'Số điện thoại của bạn không hợp lệ! Vui lòng kiểm tra lại.',
+        confirmButtonText: '<img class="tet-popup-xacnhan-btn" src="/images/popup_xacnhan.png" />',
+        customClass: {
+            confirmButton: "tet-custom-confirm",
+            title: 'tet-custom-popup-title',
+            htmlContainer: 'tet-custom-popup-text',
+            popup: 'tet-custom-notify-container',
+        }
+        })
+    return;
+    }
     console.log({name, phone, city});
     Swal.fire({
     title: 'Cám ơn quý khách đã quan tâm tới dịch vụ của vietnam booking',
@@ -354,7 +381,7 @@ export default function Home() {
                         <div class="tet-form-title">Đặt tour ngay hôm nay</div>
                         <div class="tet-form-list">
                             <input onChange={(e) => setName(e.target.value)} placeholder="Họ tên của bạn" id="full_name" class="tet-form-input" />
-                            <input onChange={(e) => setPhone(e.target.value)} type="number" placeholder="Số điện thoại" id="full_name" class="tet-form-input" />
+                            <input onChange={(e) => setPhone(e.target.value)} type="number" placeholder="Số điện thoại" id="full_name" class="tet-form-input tet-form-number" />
                             <select onChange={(e) => setCity(e.target.value)} name="destination" id="destination" class="tet-form-destination">
                                 <option value="Hà Nội">Hà Nội</option>
                                 <option value="Đà Nẵng">Đà Nẵng</option>

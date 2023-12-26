@@ -5,6 +5,7 @@
     min-height: 100vh;
     position: relative;
     background-color: #9E061B;
+    background-image: url('/images/bg.png');
 }
 
 .tet-container .tet-mask-top-left {
@@ -178,6 +179,8 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    background-color: #9A0116;
+    border-radius: 0 0 40px 40px;
 }
 
 .tet-container .tet-tour-item {
@@ -324,6 +327,12 @@
     font-family: Mulish;
     font-weight: 700;
     font-size: 17px;
+}
+
+.tet-container .tet-form-number::-webkit-outer-spin-button,
+.tet-container .tet-form-number::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+        margin: 0;
 }
 
 .tet-container .tet-form-input::placeholder {
@@ -569,6 +578,15 @@
     background: url('/images/popup_mask.png') no-repeat center center;
 }
 
+.tet-custom-notify-container {
+    border-radius: 8px;
+    border: 4px solid #E4E25B;
+    padding: 20px;
+    width: 400px;
+    /* height: 200px; */
+    background: #0843C1
+}
+
 .tet-custom-popup-text {
     color: #E4E25B !important;
     text-align: center !important;
@@ -753,7 +771,7 @@ div:where(.swal2-container).swal2-backdrop-show {
 
     .tet-container .tet-form-submit {
         width: 240px;
-        margin-top: 12px;
+        margin-top: 42px;
     }
 
     .tet-container .tet-contact .tet-contact-form {
