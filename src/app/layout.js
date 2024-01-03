@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Script from "next/script";
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata = {
   title: "Tết đoàn viên, nhận liền ưu đãi - Tour Tết 2024 | Vietnam Booking",
@@ -45,6 +46,7 @@ export default function RootLayout({ children }) {
           src="https://cdn.jsdelivr.net/npm/sweetalert2@11"
         />
         <body>{children}</body>
+        <Analytics />
       </html>
     </>
   );
