@@ -47,6 +47,10 @@ export default function Home() {
   const [city, setCity] = useState('Hà Nội');
   const [disabled, setDisabled] = useState(false);
 
+  const handleClickTour = (tour) => {
+        // console.log('tour', tour)
+  }
+
   const handleSubmit = async () => {
     if(name.length < 3) {
         Swal.fire({
@@ -173,7 +177,7 @@ export default function Home() {
                                     <div class="tet-tour-item-price">
                                         {item.price} VNĐ
                                     </div>
-                                    <a href={item.link} target="_blank" class="tet-tour-item-order">
+                                    <a onClick={() => handleClickTour(item)} href={item.link} target="_blank" class="tet-tour-item-order">
                                         Đặt tour
                                     </a>
                                 </div>
@@ -200,7 +204,7 @@ export default function Home() {
                                         <div class="tet-tour-item-price">
                                             {item.price} VNĐ
                                         </div>
-                                        <a href={item.link} target="_blank" class="tet-tour-item-order">
+                                        <a onClick={() => handleClickTour(item)} href={item.link} target="_blank" class="tet-tour-item-order">
                                             Đặt tour
                                         </a>
                                     </div>
@@ -224,7 +228,7 @@ export default function Home() {
                                         <div class="tet-tour-item-price">
                                             {item.price} VNĐ
                                         </div>
-                                        <a href={item.link} target="_blank" class="tet-tour-item-order">
+                                        <a onClick={() => handleClickTour(item)} href={item.link} target="_blank" class="tet-tour-item-order">
                                             Đặt tour
                                         </a>
                                     </div>
@@ -271,7 +275,7 @@ export default function Home() {
                                         <div class="tet-tour-item-price">
                                             {item.price} VNĐ
                                         </div>
-                                        <a href={item.link} target="_blank" class="tet-tour-item-order">
+                                        <a onClick={() => handleClickTour(item)} href={item.link} target="_blank" class="tet-tour-item-order">
                                             Đặt tour
                                         </a>
                                     </div>
@@ -295,7 +299,7 @@ export default function Home() {
                                         <div class="tet-tour-item-price">
                                             {item.price} VNĐ
                                         </div>
-                                        <a href={item.link} target="_blank" class="tet-tour-item-order">
+                                        <a onClick={() => handleClickTour(item)} href={item.link} target="_blank" class="tet-tour-item-order">
                                             Đặt tour
                                         </a>
                                     </div>
@@ -319,7 +323,7 @@ export default function Home() {
                                         <div class="tet-tour-item-price">
                                             {item.price} VNĐ
                                         </div>
-                                        <a href={item.link} target="_blank" class="tet-tour-item-order">
+                                        <a onClick={() => handleClickTour(item)} href={item.link} target="_blank" class="tet-tour-item-order">
                                             Đặt tour
                                         </a>
                                     </div>
