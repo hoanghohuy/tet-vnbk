@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/analytics": "^1.1.1",
+"@vercel/analytics": "^1.1.1",
     "bootstrap": "^3.3.7",
+    "firebase": "^10.7.1",
     "next": "14.0.4",
     "nodemailer": "^6.9.7",
     "owl.carousel": "^2.3.4",
