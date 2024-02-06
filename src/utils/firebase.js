@@ -26,7 +26,8 @@ const getBookTours = async () => {
             eventToursData.push({ id: doc.id, ...doc.data() });
         });
 
-        console.log('All data in eventTours:', eventToursData);
+        console.table(eventToursData);
+        console.log(eventToursData)
     } catch (error) {
         console.error('Error getting eventTours data:', error);
     }

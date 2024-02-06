@@ -7,7 +7,7 @@ import '@/components/css/animate.min.css';
 import '@/components/css/custom/common/fonts-custom.css';
 import '@/components/css/desktop/tet.css';
 import Swal from 'sweetalert2';
-import { handleBookTour } from '@/utils/firebase';
+import { handleBookTour, getBookTours } from '@/utils/firebase';
 
 const settings = {
     dots: false,
@@ -47,7 +47,11 @@ export default function Home() {
     const [phone, setPhone] = useState('');
     const [city, setCity] = useState('Hà Nội');
     const [disabled, setDisabled] = useState(false);
-
+    
+    const logging = async () => {
+       await  getBookTours();
+    }
+    // logging()
     const handleSubmit = async () => {
         if (name.length < 3) {
             Swal.fire({
